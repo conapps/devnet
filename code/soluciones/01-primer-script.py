@@ -1,5 +1,5 @@
 """
-Primer script escrito en python.
+Script #1
 
 Imprime texto en la consola con colores.
 """

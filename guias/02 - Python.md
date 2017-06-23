@@ -748,3 +748,43 @@ Dadas las estructuras de datos encontradas en el archivo `codes/07-nested-data-t
 1. Ir al archivo `codes/07-nested-data-type-loops.py`.
 2. Correr el script y verificar que los datos pedidos no son impresos.
 3. Agregar los loops necesarios para cumplir con lo pedido anteriormente.
+
+Python Functions
+---
+
+A function is a block of code that is run only when it's explicitly called. For example, print() is a built-in function written in Python that you've called many times. Functions are written to modularize code to make it easy to read, reuse and easier to debug because it's located in one place. Essentially, you don't want to write code over and over again that does the same thing. Instead you would put that code into a function and then call that function whenever you need it.
+
+Let's look at the structure of a function, then we'll look at a simple example. In Python a function is defined in the manner shown below. The keyword def specifies that a function is defined which is then followed by the name of the function and optional arguments that are passed into it. Code to be included within the function must be indented under the function and become part of the function block. This code is then executed only when the function is called.
+
+![Function structure](https://learninglabs.cisco.com/posts/files/00-prep-04-python-primer2/assets/images/function-struct.png)
+
+Let's look at some simple examples of functions. The first function named `my_function` simply prints a statement. The second function `brett` takes an argument called val which it passes to the function `range` and uses for looping.
+
+![Function examples](https://learninglabs.cisco.com/posts/files/00-prep-04-python-primer2/assets/images/function-ex.png)
+
+Now let's look at these simple functions in a script to see how they're called. When a Python script is run the interpreter looks at what it should run now. The interpreter sees the call to print and executes that statement. It then sees the next two defined functions, makes note of them, but does not execute them because they have not yet been explicitly called. Continuing down the script the interpreter then sees the call to function `my_function` and executes it. Finally, it sees the call to function `brett` with the argument of 5 passed in and executes it.
+
+```python
+print("I'm not a function")
+
+def my_function():
+        print("Hey I'm a function!")
+
+def brett(val):
+    for i in range(val):
+        print("I'm a function with args!")
+
+my_function()
+brett(5)
+```
+
+### Script #8 - `08-call-functions.py`
+
+En este script hay varios ejemplos de funciones que imprimen en la consola. La idea es crear dos funciones nuevas que hagan lo mismo. La primera no debe tomar níngun argumento y debe escribir un texto fijo en la consola. La segunda, deberá tomar un argumento, e imprimirlo en la consola.
+
+#### Instrucciones
+
+1. Ir al archivo `codes/08-call-functions.py`.
+2. Correr el script y estudiar el error que tira.
+3. Crear las funciones correspondientes según los comentarios incluidos en el script.
+4. Probar que el script corre correctamente.

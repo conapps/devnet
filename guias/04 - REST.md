@@ -375,7 +375,7 @@ Este script inicialmente no hace nada. Solamente cuenta con la imporación de lo
 
 #### Instrucciones
 
-1. Ir al archivo `codes/11-fist-python-spark-api-call.py`.
+1. Ir al archivo `code/11-fist-python-spark-api-call.py`.
 2. Verificar que su contenido este alineado con lo mencionado anteriormente.
 3. Ingrese en la variable `TOKEN` su clave de Spark.
 4. Escriba las instrucciones necesarias para obtener todos los `rooms` a los cuales esta actualmente registrado su usuario. La URL del endpoint que deben acceder es: `htts://api.ciscospark.com/v1/rooms`.
@@ -390,7 +390,7 @@ La idea de este script es lograr escribir un mensaje en un grupo determinado uti
 
 #### Instrucciones.
 
-1. Ir al archivo `codes/12-spark-mission.py`
+1. Ir al archivo `code/12-spark-mission.py`
 2. Leer el script e identificar los comandos que hay que modificar (esán numerados con comentarios.)
 3. Realizar las modificaciones necesarias para:
   1. Crear o encontrar un `room`.

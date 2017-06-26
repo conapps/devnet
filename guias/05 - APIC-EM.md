@@ -127,7 +127,7 @@ El script en cuestión se encuentra vació, salvo por algunos comentarios. La id
 
 #### Instrucciones
 
-1. Ir al archivo `codes/13-first-apic-em-api-call.py`
+1. Ir al archivo `code/13-first-apic-em-api-call.py`
 2. Leer los comentarios dentro del script.
 3. Agregar las instrucciones necesarias para obtener el `ticket` del APIC-EM.
 4. Probar que el script funciona correctamente al imprimir el `ticket` en la consola.
@@ -283,7 +283,7 @@ Para la realización de este script, vamos a tener que utilizar todos los conoci
 
 #### Instrucciones
 
-1. Ir al archivo `codes/14-apic-em-and-spark-mission.py`
+1. Ir al archivo `code/14-apic-em-and-spark-mission.py`
 2. Leer los comentarios dentro del script.
 3. Agregar las instrucciones necesarias para obtener la topología física del APIC-EM y postear esta información en un `room` de Spark.
 4. Correr el script y verificar que la información obtenida es posteada en el `room` correcto.

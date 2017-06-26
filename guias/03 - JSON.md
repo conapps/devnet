@@ -29,7 +29,7 @@ El documento contiene multiples ejemplos de como imprimir los valores dentro de 
 
 #### Instrucciones
 
-1. Ir al archivo `codes/09-json-print.py`.
+1. Ir al archivo `code/09-json-print.py`.
 2. Correr el script y estudiar el resultado.
 3. Escribir el codigo necesario para imprimir todo el documento JSON y cada uno de sus valores individualmente.
 4. Probar que el script corre correctamente.
@@ -112,7 +112,7 @@ El documento contiene multiples ejemplos de como imprimir los valores dentro de 
 
 #### Instrucciones
 
-1. Ir al archivo `codes/10-json-nested-print.py`.
+1. Ir al archivo `code/10-json-nested-print.py`.
 2. Correr el script y estudiar el resultado.
 3. Escribir el codigo necesario para imprimir todo el documento JSON y cada uno de sus valores individualmente.
 4. Probar que el script corre correctamente.

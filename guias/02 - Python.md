@@ -37,13 +37,13 @@ $ python script.py
 
 ### Script #1
 
-Vamos a escribir nuestro primer script de Python. El mismo contiene varios componentes que vamos a desarrollar sobre este curso. Por ahora, solo copiaremos el script que aparece a continuación y lo correremos. 
+Vamos a escribir nuestro primer script de Python. El mismo contiene varios componentes que vamos a desarrollar sobre este curso. Por ahora, solo copiaremos el script que aparece a continuación y lo correremos.
 
 **Recomendación:** Intente escribir el codigo en el editor de texto en vez de copiarlo para empezar a acostumbrarse a escibir codigo.
 
 #### Instrucciones
 
-1. Ir al archivo `codes/01-primer-script.py`.
+1. Ir al archivo `code/01-primer-script.py`.
 2. Copiar o redactar el siguiente contenido dentro del archivo:
 
 ```python
@@ -119,7 +119,7 @@ Este segundo script muestra como funcionan las reglas de `scope` en Python. Pode
 
 #### Instrucciones
 
-1. Ir al archivo `codes/02-segundo-script.py`.
+1. Ir al archivo `code/02-segundo-script.py`.
 2. Copiar o redactar el siguiente contenido dentro del archivo:
 
 ```python
@@ -462,7 +462,7 @@ Para ver funcionar el condicional vamos a escribir un script que permita consumi
 
 #### Instrucciones
 
-1. Ir al archivo `codes/03-tercer-script.py`.
+1. Ir al archivo `code/03-tercer-script.py`.
 2. Copiar o redactar el siguiente contenido dentro del archivo:
 
 ```python
@@ -543,7 +543,7 @@ El siguiente script tiene las distintas maneras que vimos para concatenar string
 
 #### Instrucciones
 
-1. Ir al archivo `codes/04-concat.py`.
+1. Ir al archivo `code/04-concat.py`.
 3. Correr el script y verificar que existe un error con el mismo.
 4. Solucionar el error y verificar su funcionamiento corriendolo nuevamente.
 
@@ -582,17 +582,17 @@ A dictionary is a different than a list or a tuple. Each element in a dictionary
 ```python
 {
   "car": "corvette",
-  "age": 7, 
+  "age": 7,
   "food": "pizza"
 }
 ```
 
-Assigning a dictionary to a variable is simple: 
+Assigning a dictionary to a variable is simple:
 
 ```python
 myvar = {
   "car": "corvette",
-  "age": 7, 
+  "age": 7,
   "food": "pizza"
 }
 ```
@@ -610,7 +610,7 @@ Al igual que en el script anterior, hay ciertos errores en el script que se tien
 
 #### Instrucciones
 
-1. Ir al archivo `codes/05-first-data-types.py`.
+1. Ir al archivo `code/05-first-data-types.py`.
 3. Correr el script y verificar que existe un error con el mismo.
 4. Solucionar el error y verificar su funcionamiento corriendolo nuevamente.
 
@@ -633,7 +633,7 @@ food = {
   ],
   "desserts": [
     "cake",
-    "ice cream", 
+    "ice cream",
     "donut"
   ]
 }
@@ -671,7 +671,7 @@ Este script tiene configurado una estructura de datos compleja. La idea del ejer
 
 #### Instrucciones
 
-1. Ir al archivo `codes/06-nested-data-types.py`.
+1. Ir al archivo `code/06-nested-data-types.py`.
 2. Correr el script y verificar que los datos pedidos no son impresos.
 3. Modificar los comandos `print` para que sean impresos en la consola los valores requeridos.
 
@@ -736,7 +736,7 @@ for auto in cars["sports"]:
 
 La idea es ver con este script algunos metodos básicos para iterar sobre una estructura de python, y así operar facilmentoe con los valores almacenados.
 
-Dadas las estructuras de datos encontradas en el archivo `codes/07-nested-data-type-loops.py`, escriba los `loops` necesarios para:
+Dadas las estructuras de datos encontradas en el archivo `code/07-nested-data-type-loops.py`, escriba los `loops` necesarios para:
 
 1. Imprimir todos los vegetales.
 2. Imprimir todos los postres.
@@ -745,7 +745,7 @@ Dadas las estructuras de datos encontradas en el archivo `codes/07-nested-data-t
 
 #### Instrucciones
 
-1. Ir al archivo `codes/07-nested-data-type-loops.py`.
+1. Ir al archivo `code/07-nested-data-type-loops.py`.
 2. Correr el script y verificar que los datos pedidos no son impresos.
 3. Agregar los loops necesarios para cumplir con lo pedido anteriormente.
 
@@ -784,7 +784,7 @@ En este script hay varios ejemplos de funciones que imprimen en la consola. La i
 
 #### Instrucciones
 
-1. Ir al archivo `codes/08-call-functions.py`.
+1. Ir al archivo `code/08-call-functions.py`.
 2. Correr el script y estudiar el error que tira.
 3. Crear las funciones correspondientes según los comentarios incluidos en el script.
 4. Probar que el script corre correctamente.

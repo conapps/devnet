@@ -69,7 +69,7 @@ red = curry(puts, 'red')
 blue = curry(puts, 'blue')
 
 # Add a new line
-print()
+print('\n')
 
 red("CONATEL S.A.")
 puts("Devnet express.")

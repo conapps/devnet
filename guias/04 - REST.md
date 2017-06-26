@@ -368,3 +368,39 @@ for item in RESPONSE["items"]:
 ![Results 2](../imagenes/REST-27.png)
 
 Congratulations! You've written python code that can make REST API calls and retrieve information from Spark. If you don't fully understand the code above do not worry about it. The next lab goes through great detail and explains the moving pieces of the Python, so you can better understand what is happening in our own code.
+
+### Script #11 - `11-fist-python-spark-api-call.py`
+
+Este script inicialmente no hace nada. Solamente cuenta con la imporación de los módulos necesarios así como un metodo para crear el diccionario de encabezados que necesitamos para construir nuestro request. La idea es agregar las instrucciones necesarias para recuperar todos los `rooms` a los cuales estamos asociados.
+
+#### Instrucciones
+
+1. Ir al archivo `codes/11-fist-python-spark-api-call.py`.
+2. Verificar que su contenido este alineado con lo mencionado anteriormente.
+3. Ingrese en la variable `TOKEN` su clave de Spark.
+4. Escriba las instrucciones necesarias para obtener todos los `rooms` a los cuales esta actualmente registrado su usuario. La URL del endpoint que deben acceder es: `htts://api.ciscospark.com/v1/rooms`.
+
+#### Notas
+- Para hacer un request HTTP tipo `get` con el módulo `requests` se puede utilizar el metodo `requests.get`.
+- Para poder imprimir un documento de JSON en la consola de modo más amigable, podemos utilizar el metodo `json.dumps(<json_document>, indent=4, separators=(',', ':'))`, donde es necesari modificar `<json_document>` por el documento de JSON que queremos imprimir.
+ 
+### Script #12 - `12-spark-misson.py`
+
+La idea de este script es lograr escribir un mensaje en un grupo determinado utilizando la API. En el caso de que el `room` no este creado, lo crearemos. Luego agregaremos al `room` un nuevo usuario, enviaremos el mensaje, e imprimieremos en la consola los detalles del mismo.
+
+#### Instrucciones.
+
+1. Ir al archivo `codes/12-spark-mission.py`
+2. Leer el script e identificar los comandos que hay que modificar (esán numerados con comentarios.)
+3. Realizar las modificaciones necesarias para:
+  1. Crear o encontrar un `room`.
+  2. Agregar un usuario de prueba.
+  3. Postear un mensaje.
+  4. Imprimir los detalles del room.
+4. Correr el script y verificar que la información impresa en la consola sea correcta, y que el mensaje se ha escrito en el grupo de Spark correspondiente.
+
+#### Notas
+
+- Puede encontrar información de referencia sobre la API de Spark desde el siguiente link:
+
+[https://developer.ciscospark.com/getting-started.html](https://developer.ciscospark.com/getting-started.html)

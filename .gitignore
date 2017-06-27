@@ -9,3 +9,4 @@ devnet-express-code-samples
 .vscode
 */__pycache__/*
 **/*.pyc
+.idea/

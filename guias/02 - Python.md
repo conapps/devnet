@@ -550,7 +550,7 @@ El siguiente script tiene las distintas maneras que vimos para concatenar string
 Python Data Types
 ---
 
-In this step we'll explore Python data types. There are many data types listed in the figure below. There are simple numeric ones like **integers** and **floats**. For our purposes the differences between a float and an integer is that a float has a decimal in it. For example `52.856` is a float while `52` is an integer. `Boolean` data types can only be either `True` or `False`.  Text is a data type that is shrouded in quotes `"text"` and can be alphanumeric. Text is more commonly called `string`. For example: `"brett` is a `string`, so is `'brett123'`, but `123` is an `integer`.
+In this step we'll explore Python data types. There are many data types listed in the figure below. There are simple numeric ones like **integers** and **floats**. For our purposes the differences between a float and an integer is that a float has a decimal in it. For example `52.856` is a float while `52` is an integer. `Boolean` data types can only be either `True` or `False`.  Text is a data type that is shrouded in quotes `"text"` and can be alphanumeric. Text is more commonly called `string`. For example: `"brett"` is a `string`, so is `'brett123'`, but `123` is an `integer`.
 
 ![python data types](https://learninglabs.cisco.com/posts/files/00-prep-04-python-primer2/assets/images/python-datatypes.png)
 

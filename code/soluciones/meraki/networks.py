@@ -4,81 +4,111 @@ Meraki Networks API Resource
 
 import urllib
 from meraki_api_resource import MerakiAPIResource
+from devices import Devices
+from ssids import SSIDs
+from site_to_site_vpn import SiteToSiteVPN
+from phone_contacts import PhoneContacts
+from sm import SM
+from static_routes import StaticRoutes
+from vlans import VLANs
 from utils import clean
 
-class Network(MerakiAPIResource):
-    """ Meraki API Network resource. """
 
-    _parameters_ = ["name", "timeZone", "tags", "type"]
+class Networks(MerakiAPIResource):
+    """ Meraki API Networks resource. """
 
-    _traffic_parameters_ = ["timespan", "deviceType"]
+    resource = "networks"
 
-    def __init__(self, key, prefix, resource_id=None):
+    parameters = ["name", "timeZone", "tags", "type"]
+
+    traffic_parameters = ["timespan", "deviceType"]
+
+    air_marshal_parameters = ["timespan"]
+
+    bind_parameters = ["configurationTemplateId", "autoBind"]
+
+    def __init__(self, key, prefix=None, resource_id=None):
         MerakiAPIResource.__init__(self, key, prefix, resource_id)
 
-    def show(self):
-        """ Return a network. """
-        return self._get_()
+    def check_timespan(self, query):
+        """ Checks if the query object has the timespan value configured. """
+        if query is None or query.get("timespan") is None:
+            raise ValueError("You must set the timespan query value.")
 
-    def create(self, data):
-        """ Create a network. """
-        return self._post_(clean(data, self._parameters_))
+    def static_routes(self, static_route_id=None):
+        """ Returns the Networks Static Routes API Resource. """
+        self.check_for_resource_id()
+        return StaticRoutes(self.key, self.endpoint(), static_route_id)
 
-    def update(self, data):
-        """ Update a network. """
-        return self._put_(clean(data, self._parameters_))
+    def devices(self, serial=None):
+        """ Returns the Networks Devices API Resource. """
+        self.check_for_resource_id()
+        return Devices(self.key, self.endpoint(), serial)
 
-    def delete(self):
-        """ Delete a network. """
-        return self._delete_()
+    def ssids(self, ssid_id=None):
+        """ Returns the Network SSIDs API Resource."""
+        self.check_for_resource_id()
+        return SSIDs(self.key, self.endpoint(), ssid_id)
+
+    def site_to_site_vpn(self, site_to_site_vpn_id=None):
+        """ Returns site-to-site VPN settings API Resource. """
+        self.check_for_resource_id()
+        return SiteToSiteVPN(self.key, self.endpoint(), site_to_site_vpn_id)
+
+    def vlans(self, vlan_id=None):
+        """ Returns VLANs VPN settings API Resource. """
+        self.check_for_resource_id()
+        return VLANs(self.key, self.endpoint(), vlan_id)
+
+    def sm(self):
+        """ Returns Network SM API Resource. """
+        self.check_for_resource_id()
+        return SM(self.key, self.endpoint())
 
     def traffic(self, query):
         """
         The traffic analysis data for this network. Traffic Analysis with
         Hostname Visibility must be enabled on the network.
         """
-        if query["timespan"] is None:
-            raise ValueError("You must set the timespan query value.")
-        query = clean(query, self._traffic_parameters_)
-        return self._get_("/traffic?" + urllib.parse.urlencode(query))
+        self.check_for_resource_id()
+        self.check_timespan(query)
+        query = clean(query, self.traffic_parameters)
+        return self.get("/traffic?" + urllib.parse.urlencode(query))
 
-class Networks(MerakiAPIResource):
-    """ Meraki API Networks resource. """
+    def bind(self, data):
+        """ Binds template to network. """
+        self.check_for_resource_id()
+        data = clean(data, self.bind_parameters)
+        return self.post("/bind", data)
 
-    def __init__(self, key, prefix, resource_id=None):
-        MerakiAPIResource.__init__(self, key, prefix, resource_id)
+    def unbind(self):
+        """ Unbind template from network. """
+        self.check_for_resource_id()
+        return self.post("/unbind")
 
-    def index(self):
-        """ List the networks in an organization. """
-        return self._get_()
+    def access_policies(self):
+        """ List the access policies (MS). """
+        self.check_for_resource_id()
+        return self.get("/accessPolicies")
 
-    def get(self, network_id=None):
-        """ Gets an Meraki Network API resource """
-        if network_id is None:
-            prefix = self.prefix
-        else:
-            prefix = self.prefix + "/" + network_id
-        return Network(self.key, prefix)
+    def air_marshal(self, query):
+        """ Air marshal scan results from a network. """
+        self.check_timespan(query)
+        self.check_for_resource_id()
+        query = clean(query, self.air_marshal_parameters)
+        return self.get("/airMarshal?" + urllib.parse.urlencode(query))
 
-    def show(self, network_id):
-        """ Return a network. """
-        return self.get(network_id).show()
+    def phone_contacts(self, phone_contact_id=None):
+        """ List the phone contacts in a network. """
+        self.check_for_resource_id()
+        return PhoneContacts(self.key, self.endpoint(), phone_contact_id)
 
-    def create(self, data):
-        """ Create a new dashboard administrator """
-        return self.get().create(data)
+    def phone_numbers(self):
+        """ List all the phone numbers in a network. """
+        self.check_for_resource_id()
+        return self.get("/phoneNumbers")
 
-    def update(self, network_id, data):
-        """ Update a network. """
-        return self.get(network_id).update(data)
-
-    def delete(self, network_id):
-        """ Delete a network. """
-        return self.get(network_id).delete()
-
-    def traffic(self, network_id, query):
-        """
-        The traffic analysis data for this network. Traffic Analysis with
-        Hostname Visibility must be enabled on the network.
-        """
-        return self.get(network_id).traffic(query)
+    def available_phone_numbers(self):
+        """ List all the available phone numbers in a network. """
+        self.check_for_resource_id()
+        return self.get("/phoneNumbers/available")

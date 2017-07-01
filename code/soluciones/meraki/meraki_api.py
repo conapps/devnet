@@ -3,9 +3,10 @@ Meraki API helpers
 """
 
 from meraki_api_resource import MerakiAPIResource
-from devices import Devices, Device
-from organizations import Organizations, Organization
-from networks import Networks, Network
+from devices import Devices
+from organizations import Organizations
+from networks import Networks
+
 
 class MerakiAPI(MerakiAPIResource):
     """ Meraki API class helper """
@@ -17,21 +18,12 @@ class MerakiAPI(MerakiAPIResource):
 
     def organizations(self, organization_id=None):
         """ Returns an API Organization Resource. """
-        if organization_id is None:
-            return Organizations(self.key, "/organizations")
-        else:
-            return Organization(self.key, "/organizations", organization_id)
-
-    def devices(self, serial=None):
-        """ Returns an API Devices Resource. """
-        if serial is None:
-            return Devices(self.key, "/devices")
-        else:
-            return Device(self.key, "/devices", serial)
+        return Organizations(self.key, None, organization_id)
 
     def networks(self, network_id=None):
-        """ Returns an API Devices Resource. """
-        if network_id is None:
-            return Networks(self.key, "/networks")
-        else:
-            return Network(self.key, "/networks", network_id)
+        """ Returns an API Network Resource. """
+        return Networks(self.key, None, network_id)
+
+    def devices(self, serial=None):
+        """ Returns an API Device Resource. """
+        return Devices(self.key, None, serial)

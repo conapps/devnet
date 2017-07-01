@@ -1,16 +1,16 @@
 """
-Meraki Admins API Resource
+Meraki Site-to-site VPN API Resource
 """
 
 from meraki_api_resource import MerakiAPIResource
 
 
-class Admins(MerakiAPIResource):
+class SiteToSiteVPN(MerakiAPIResource):
     """ Meraki API Organization Admins resource. """
 
-    resource = "admins"
+    resource = "siteToSiteVpn"
 
-    parameters = ["email", "name", "orgAccess", "tags", "networks"]
+    parameters = ["mode", "hubs"]
 
     def __init__(self, key, prefix, resource_id=None):
         MerakiAPIResource.__init__(self, key, prefix, resource_id)

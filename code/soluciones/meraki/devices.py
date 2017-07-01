@@ -4,12 +4,27 @@ Meraki Devices API Resource
 
 import urllib
 from meraki_api_resource import MerakiAPIResource
+from switch_ports import SwitchPorts
+from utils import clean
 
-class Device(MerakiAPIResource):
-    """ Meraki API Device resource. """
+class Devices(MerakiAPIResource):
+    """ Meraki API Devices resource. """
 
-    def __init__(self, key, prefix, resource_id=None):
+    resource = "devices"
+
+    parameters = ["name", "tags", "lat", "lng", "address", "moveMapMarker"]
+
+    clients_parameters = ["timespan"]
+
+    claim_parameters = ["serial"]
+
+    def __init__(self, key, prefix=None, resource_id=None):
         MerakiAPIResource.__init__(self, key, prefix, resource_id)
+
+    def switch_ports(self, switch_port_id=None):
+        """ Returns a Device Switch Ports API Resource. """
+        self.check_for_resource_id()
+        return SwitchPorts(self.key, self.endpoint(), switch_port_id)
 
     def clients(self, query):
         """
@@ -20,18 +35,27 @@ class Device(MerakiAPIResource):
         """
         if query is None:
             raise ValueError("You must set the timespan query value.")
-        return self._get_("/clients?" + urllib.parse.urlencode(query))
+        query = clean(query, self.clients_parameters)
+        return self.get("/clients?" + urllib.parse.urlencode(query))
 
-class Devices(MerakiAPIResource):
-    """ Meraki API Devices resource. """
+    def uplink(self):
+        """ Return uplink status. """
+        if self.resource_id is None:
+            raise ValueError("Cant't call this endpoint if the serial is not\
+defined")
+        return self.get("/uplink")
 
-    def __init__(self, key, prefix, resource_id=None):
-        MerakiAPIResource.__init__(self, key, prefix, resource_id)
+    def claim(self, query):
+        """ Claim a device. """
+        if self.resource_id is not None:
+            raise ValueError("Can't claim a device already assigned.")
+        if query is None or query.get("serial") is None:
+            raise ValueError("Can't claim a device without its serial.")
+        query = clean(query, self.claim_parameters)
+        return self.post("/claim", query)
 
-    def get(self, serial):
-        """ Gets an Meraki Device API resource. """
-        return Device(self.key, self.prefix, serial)
-
-    def clients(self, serial, query):
-        """ Returns a Device Clients API Resource. """
-        return self.get(serial).clients(query)
+    def remove(self):
+        """ Remove a single device. """
+        if self.resource_id is None:
+            raise ValueError("Can't remove a device without its serial.")
+        return self.post("/remove")

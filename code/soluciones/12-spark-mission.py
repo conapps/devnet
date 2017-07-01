@@ -7,11 +7,11 @@ import json
 import requests
 
 # 1. Agregar el token personal de desarrollador de Spark.
-TOKEN = None
+TOKEN = "NjgyYzJjNmItZjMwNy00ZmU4LTgxYWItMmZmMDRlZDM1NTBiYjdkYjg5MmUtY2Mw"
 # 2. Agregar el nombre del room donde se escribirán los mensajes.
-ROOM_NAME = None
+ROOM_NAME = "DevNet Conatel"
 # 3. Escribir el mensaje que será públicado en el grupo.
-MESSAGE = None
+MESSAGE = "Hola desde python"
 
 def get_headers():
     """ Devuelve un diccionario con los encabezados necesarios. """

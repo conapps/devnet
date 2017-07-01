@@ -25,7 +25,7 @@ VAR1 = {
 
 print(VAR1["donut"][0])
 
-print("My favorite donut flavors are:", end=" ")
+print("My favorite donut flavors are:", end=" ") # end="\n"
 
 for f in VAR1["donut"]:
     print(f, end=" ")

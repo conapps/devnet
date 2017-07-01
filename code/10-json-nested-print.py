@@ -52,7 +52,7 @@ print()
 
 print()
 
-# 1. Imprimir todos los valores incluidos en los JSONs declarados.
+# 1. Imprimir todos los ejercicios de alto impacto.
 
 VAR3 = {
     "exercise": {
@@ -65,6 +65,8 @@ VAR3 = {
         ]
     }
 }
+
+# 2. Imprimir los valores de ID y Titulo de cada novela.
 
 VAR4 = {
     "author": "Stephen King",

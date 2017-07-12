@@ -7,7 +7,7 @@ src
 coding-skills-sample-code
 devnet-express-code-samples
 .vscode
-/desafio_final
+/desafio_final/desafio_final_solucion.py
 */__pycache__/*
 **/*.pyc
 .idea/

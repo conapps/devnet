@@ -35,7 +35,7 @@ https://dashboard.meraki.com/api/v0
 https://documenter.getpostman.com/view/897512/meraki-dashboard-prov-api/2To9xm#intro
 ```
 
-### preventaconate@gmail.com Meraki API Key
+### preventaconatel@gmail.com Meraki API Key
 ```
 76268186c0b0da0eb10af1ba92419703930f9322
 ```

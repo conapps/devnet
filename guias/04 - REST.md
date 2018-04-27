@@ -1,8 +1,6 @@
-REST
-===
+# REST
 
-Overview of APIs
----
+## Overview of APIs
 
 We are going to begin our discussion on network programmability by discussing what an API is and why they are important. Let's start by making sure we have a good foundation by diving into some definitions.
 
@@ -22,16 +20,15 @@ A good example is a Maps Server. Rather than build map functionality from scratc
 
 Much like a wall outlet, an API enforces a specification of an interface. An API ensures that software adheres to the proper specifications much like an outlet ensures that devices adhere to the proper electrical specifications regardless of the vendor or device.
 
-Get Access To The Spark REST APIs
----
+## Get Access To The Spark REST APIs
 
 We are going to use the Spark REST API to start our programmability journey. Spark is a collaboration tool that allows people to chat and share files, plus other capabilities.
 
 You need to set up a Spark developer account in order to explore the Spark REST API!
 
-1. Go to the Spark Developer website.
-2. Click on Sign Up button to create an account.
-3. Log in with your new credentials and click on the member icon located on the top right corner of the page and click on the 'Copy' button to copy your Access Token.
+1.  Go to the Spark Developer website.
+2.  Click on Sign Up button to create an account.
+3.  Log in with your new credentials and click on the member icon located on the top right corner of the page and click on the 'Copy' button to copy your Access Token.
 
 ![Spark developer key](../imagenes/REST-17.png)
 
@@ -39,8 +36,7 @@ The token allows you to make Spark API calls.
 
 Great! Now that we have the basics of APIs down, let's dive into REST APIs to see how they work.
 
-What is a REST web service?
----
+## What is a REST web service?
 
 In general, a web service is a way for two systems to communicate through a defined interface. In the past 20 years, there have been two major types of Web Services – REST or SOAP. In the last 10 years, the REST approach has become increasingly popular.
 
@@ -60,8 +56,7 @@ RESTful interfaces offer these same CRUD (Create, Read, Update, Delete) operatio
 
 [Cool REST tutorial](http://rest.elkstein.org/)
 
-What is so great about REST?
----
+## What is so great about REST?
 
 REST is easy to use on any platform!
 
@@ -73,8 +68,7 @@ However, REST is also used by a number of networking platforms such as Cisco's A
 
 ![APIC-EM REST API](../imagenes/REST-12.jpg)
 
-How does this work?
----
+## How does this work?
 
 Now let's cover how REST APIs work. REST is centered around the HTTP request and response model. Consuming an API is just as simple as making an HTTP request.
 
@@ -84,8 +78,7 @@ For example, if we make a request to an API Service, then result of the request 
 
 (JSON -- JavaScript Object Notation, is a lightweight text-based open standard designed for human-readable data interchange.)
 
-Examine the Anatomy of a REST API Query
----
+## Examine the Anatomy of a REST API Query
 
 To construct a request, you need to know the following information for the API that you are calling. You can find this information in the API reference documentation.
 
@@ -110,13 +103,11 @@ To construct a request, you need to know the following information for the API t
 
 ![Anatomy of a REST API query](../imagenes/REST-10.png)
 
-A Little About Authentication
----
+## A Little About Authentication
 
 There are different types of authentication for REST APIs. Authentication is used to control access and access rights to the REST APIs. For example, some users might have read-only access which means that they can use only the parts of the API that read data. Other users might have both read and write access. This means they can use the API to perform operations that not only read data but also add, edit, and delete data. These access rights are typically based on user assigned roles such as Administrator where a user would have full rights to change the data. For example, a plain User role might have read-only access rights.
 
-Types of Authentication Controls
----
+## Types of Authentication Controls
 
 * None: the Web API resource is public, anybody can place call. Generally the case for GET methods, rarely for POST, PUT, DELETE.
 * Basic HTTP: The username and password are passed to the server in an encoded string.
@@ -131,13 +122,11 @@ Types of Authentication Controls
   * The token expires. It can be revoked. It can also be re-issued via a refresh token.
   * See OAuth for more information.
 
-API Reference Documentation
----
+## API Reference Documentation
 
 The API Reference Documentation lists all of the publicly available API methods and provides the details on how to make each request. When you start to work with a new API, the API Reference is one of the most important sources of information. [Here's the API Reference Guide for Spark](https://developer.ciscospark.com/resource-people.html).
 
-What is in the Response?
----
+## What is in the Response?
 
 The API Reference Guide includes information about the attributes to be sent and returned. The returned data is defined in the Response portion which includes the HTTP status codes along with the data format and attributes.
 
@@ -153,15 +142,18 @@ The API Reference Guide includes information about the attributes to be sent and
 
 ```json
 {
- "data": [{
-    "company": "Cisco Systems",
-    "event": "DevNet Express",
-    "location": "Las Vegas, NV, USA"
-  }, {
-    "company": "Cisco Systems",
-    "event": "Cisco Live America",
-    "location": "San Jose, CA, USA"
-  }]
+  "data": [
+    {
+      "company": "Cisco Systems",
+      "event": "DevNet Express",
+      "location": "Las Vegas, NV, USA"
+    },
+    {
+      "company": "Cisco Systems",
+      "event": "Cisco Live America",
+      "location": "San Jose, CA, USA"
+    }
+  ]
 }
 ```
 
@@ -169,20 +161,17 @@ Here is an example that shows a REST API request and response all in the same wi
 
 ![REST API Postman example](../imagenes/REST-09.png)
 
-Use Postman to Call the Spark API
----
+## Use Postman to Call the Spark API
 
 As briefly mentioned earlier Postman is an HTTP web user interface (Web UI) client that allows you to make HTTP calls. There are many Web UI clients that have similar functionality, but for our purposes we'll focus on Postman.
 
-What is Postman?
----
+## What is Postman?
 
 Postman is a Google Chrome application. It provides an easy-to-use interface for learning and interacting with REST APIs.
 
 Users can send API calls and receive responses in the same window. This application can also be used to generate codes for different languages such as python. Postman is useful for entry-level users. To download and run Postman follow this link. We'll use Postman throughout this and following modules. Take a minute to make sure it is installed on your workstation.
 
-The Postman Window
----
+## The Postman Window
 
 Postman has three main working areas. On the left side of the window you can see History and Collections tabs. The History tab shows a list of your previous calls. If you want to save a particular API call from your History tab, you can click on the call to highlight it and then click the Save to collection link to specify where you want to save it.
 
@@ -196,11 +185,9 @@ If the request is correctly formed, after you click Send you should see a respon
 
 ![Postman request/response box](../imagenes/REST-06.png)
 
-Postman Test Run: Call the Spark API
----
+## Postman Test Run: Call the Spark API
 
 Let's make a call to the Spark API. Look at the screenshot below, it depicts an API call to Spark server. The letters show each step and explain the areas of the Postman window.
-
 
 A. Shows the REST method to use to send the request. You can select the method from a drop down list. As previously discussed the most common methods are: `GET`, `POST`, `PUT` and `DELETE`. In this case we want to read in a list of messages posted by a particular user to a particular room. That means for this example we want to use the `GET` method.
 
@@ -220,17 +207,17 @@ La idea de este ejercicio es conseguir una lista de todos los `rooms` a los cual
 
 #### Instrucciones
 
-1. Crear una cuenta con CISCO Spark.
-2. Conseguir su token de desarrollador.
-![Token de ejemplo](../imagenes/REST-04.png)
-3. Ir a Postman.
-4. Seleccionar `GET` del dropdown.
-5. Escribir la siguiente URL: `https://api.ciscospark.com/v1/rooms`
-6. Agregar un encabezado `Authorization` con el token de desarrollador precedido por `Bearer `.
-1. Agregar un encabezado `Content-Type` con el valor `application/json; charset=utf-8`.
-![Headers](../imagenes/REST-03.png)
-7. Presionar `Send` y verificar el resultado.
-![Resultado](../imagenes/REST-02.png)
+1.  Crear una cuenta con Cisco Webex.
+2.  Acceder a https://developer.webex.com/getting-started.html y conseguir su token de desarrollador.
+    ![Token de ejemplo](../imagenes/REST-04.png)
+3.  Ir a Postman.
+4.  Seleccionar `GET` del dropdown.
+5.  Escribir la siguiente URL: `https://api.ciscospark.com/v1/rooms`
+6.  Agregar un encabezado `Authorization` con el token de desarrollador precedido por `Bearer`.
+7.  Agregar un encabezado `Content-Type` con el valor `application/json; charset=utf-8`.
+    ![Headers](../imagenes/REST-03.png)
+8.  Presionar `Send` y verificar el resultado.
+    ![Resultado](../imagenes/REST-02.png)
 
 ### Ejercicio de Postman #2
 
@@ -238,12 +225,12 @@ Ahora vamos a interactuar directamente con CISCO Spark utilizando su API. Vamos 
 
 #### Instrucciones
 
-1. Ir a Postman.
-1. Seleccionar `POST` del dropdown.
-1. Agregar un encabezado `Authorization` con el token de desarrollador precedido por `Bearer `.
-1. Agregar un encabezado `Content-Type` con el valor `application/json; charset=utf-8`.
-1. En la tab de `Body` seleccionar `raw` y `JSON`.
-1. En el área de texto a continuación, ingrese algo similar al siguiente texto:
+1.  Ir a Postman.
+1.  Seleccionar `POST` del dropdown.
+1.  Agregar un encabezado `Authorization` con el token de desarrollador precedido por `Bearer`.
+1.  Agregar un encabezado `Content-Type` con el valor `application/json; charset=utf-8`.
+1.  En la tab de `Body` seleccionar `raw` y `JSON`.
+1.  En el área de texto a continuación, ingrese algo similar al siguiente texto:
 
 ```json
 {
@@ -251,11 +238,10 @@ Ahora vamos a interactuar directamente con CISCO Spark utilizando su API. Vamos 
 }
 ```
 
-7. Verifique en la documentación de Spark para incluir todos los parámetros necesarios.
-8. Confirme que el nuevo `room` se haya creado en su cuenta de Spark.
+7.  Verifique en la documentación de Spark para incluir todos los parámetros necesarios.
+8.  Confirme que el nuevo `room` se haya creado en su cuenta de Spark.
 
-Generating Code Using Postman
----
+## Generating Code Using Postman
 
 In the previous lab, we showed you how to make API requests using the Postman application. Also, we mentioned that it is possible to generate code for different coding languages using Postman. In this step we will show you how to do exactly that.
 
@@ -263,60 +249,60 @@ We assume that you already have the Postman application installed on your workst
 
 To generate code, we need to populate all fields in Postman. Lets begin.
 
-1. From your workstation open Postman application. 
+1.  From your workstation open Postman application.
 
 ![Postman application](../imagenes/REST-01.png)
 
-2. Our plan is to get a list of the rooms associated with the user making the inquiry. To do that we need to set the method to GET and URL to https://api.ciscospark.com/v1/rooms
+2.  Our plan is to get a list of the rooms associated with the user making the inquiry. To do that we need to set the method to GET and URL to https://api.ciscospark.com/v1/rooms
 
 ![Postman GET](../imagenes/REST-19.png)
 
-3. Now, we need to define request headers information. Click on the headers tab and provide two key value pairs. For this step you need to have access token obtained from Spark Developer website
-  * `Content-Type` and `application/json; charset=utf-8`.
-  * `Authorization` and `Bearer {access token}`.
+3.  Now, we need to define request headers information. Click on the headers tab and provide two key value pairs. For this step you need to have access token obtained from Spark Developer website
+
+* `Content-Type` and `application/json; charset=utf-8`.
+* `Authorization` and `Bearer {access token}`.
 
 ![Postman Body](../imagenes/REST-20.png)
 
-4. Good! We are ready to generate the code using Postman. Under the Save button you should find Generate Code link. Click on it. In the Generate Code Snippets window select Python -> requests language.
+4.  Good! We are ready to generate the code using Postman. Under the Save button you should find Generate Code link. Click on it. In the Generate Code Snippets window select Python -> requests language.
 
 ![Postman create code](../imagenes/REST-21.png)
 
-5. Now the entries are converted to Python code using request module to make the API call. Click Copy to Clipboard button to copy the code.
+5.  Now the entries are converted to Python code using request module to make the API call. Click Copy to Clipboard button to copy the code.
 
 ![Postman python code](../imagenes/REST-22.png)
 
-6. Paste the contents of the clipboard to your favorite text editor and save it as a Python file in your working directory.
+6.  Paste the contents of the clipboard to your favorite text editor and save it as a Python file in your working directory.
 
 ![Postman paste code](../imagenes/REST-23.png)
 
-7. Lets give it a try and see if it works. Open the command line terminal and navigate to your working directory. Issue py -3 <FILE-NAME.py> command. You should see a response from the Spark server.
+7.  Lets give it a try and see if it works. Open the command line terminal and navigate to your working directory. Issue py -3 <FILE-NAME.py> command. You should see a response from the Spark server.
 
 ![Postman console](../imagenes/REST-24.png)
 
 Terrific! You just learned how to generate code using Postman. In the next section of this lab we will show you how to write the code yourself.
 
-Writing Python Script
----
+## Writing Python Script
 
 Now, we will write the code ourselves. We will do it step-by-step, and eventually the code will send an API request to Spark and retrieve user's name and lastname based on the email information provided. In the code, we will be using /people API call and you can find detailed information regarding the call here.
 
 Before we proceed, we need to obtain Access Token from [https://developer.ciscospark.com/](https://developer.ciscospark.com/). We will Login with our username and password then click on our avatar picture. It will show us the access token needed to make the API calls. Click on the copy button.
 
-1. To make API calls using python, we need to import two modules: `requests` and `json`.
+1.  To make API calls using python, we need to import two modules: `requests` and `json`.
 
 ```python
 import json
 import requests
 ```
 
-2. Now, we should be able to call all of the functions we need that are packaged in the modules. Optionally, we can turn off warning messages related to SSL certificates. It can be achieved with the code below.
+2.  Now, we should be able to call all of the functions we need that are packaged in the modules. Optionally, we can turn off warning messages related to SSL certificates. It can be achieved with the code below.
 
 ```python
 #Disable warnings
 requests.packages.urllib3.disable_warnings()
 ```
 
-3. Below we will define variables which will be used later in our code.
+3.  Below we will define variables which will be used later in our code.
 
 ```python
 # Variables
@@ -324,10 +310,10 @@ requests.packages.urllib3.disable_warnings()
 URL = "https://api.ciscospark.com/v1"
 ENDPOINT ="/people"
 #Replace the {access-token} with your personal access token.
-TOKEN = "Bearer {access-token}" 
+TOKEN = "Bearer {access-token}"
 ```
 
-4. It is time to define our header and parameter information.
+4.  It is time to define our header and parameter information.
 
 ```python
 # Header information
@@ -339,7 +325,7 @@ HEADERS = {
 PARAM = "?email=sqtest-ciscospark-travisuser@squared.example.com"
 ```
 
-5. The result of our call we will assign to a response variable.
+5.  The result of our call we will assign to a response variable.
 
 ```python
 # Combine URL, API call and parameters variables
@@ -351,7 +337,7 @@ RESPONSE = requests.get(URL, headers=HEADERS, verify=False)
 print(RESPONSE.text)
 ```
 
-6. To see how it works, open command line interface and navigate to the working directory. Then issue py -3 our_code.py command. If everything was written correctly then we should see output in our terminal screen.
+6.  To see how it works, open command line interface and navigate to the working directory. Then issue py -3 our_code.py command. If everything was written correctly then we should see output in our terminal screen.
 
 ![Result](../imagenes/REST-26.png)
 
@@ -363,7 +349,7 @@ for item in RESPONSE["items"]:
     print('Email: ' + item['emails'][0])
 ```
 
-7. The results should now look like this:
+7.  The results should now look like this:
 
 ![Results 2](../imagenes/REST-27.png)
 
@@ -375,32 +361,33 @@ Este script inicialmente no hace nada. Solamente cuenta con la imporación de lo
 
 #### Instrucciones
 
-1. Ir al archivo `code/11-fist-python-spark-api-call.py`.
-2. Verificar que su contenido este alineado con lo mencionado anteriormente.
-3. Ingrese en la variable `TOKEN` su clave de Spark.
-4. Escriba las instrucciones necesarias para obtener todos los `rooms` a los cuales esta actualmente registrado su usuario. La URL del endpoint que deben acceder es: `htts://api.ciscospark.com/v1/rooms`.
+1.  Ir al archivo `code/11-fist-python-spark-api-call.py`.
+2.  Verificar que su contenido este alineado con lo mencionado anteriormente.
+3.  Ingrese en la variable `TOKEN` su clave de Spark.
+4.  Escriba las instrucciones necesarias para obtener todos los `rooms` a los cuales esta actualmente registrado su usuario. La URL del endpoint que deben acceder es: `htts://api.ciscospark.com/v1/rooms`.
 
 #### Notas
-- Para hacer un request HTTP tipo `get` con el módulo `requests` se puede utilizar el metodo `requests.get`.
-- Para poder imprimir un documento de JSON en la consola de modo más amigable, podemos utilizar el metodo `json.dumps(<json_document>, indent=4, separators=(',', ':'))`, donde es necesari modificar `<json_document>` por el documento de JSON que queremos imprimir.
- 
+
+* Para hacer un request HTTP tipo `get` con el módulo `requests` se puede utilizar el metodo `requests.get`.
+* Para poder imprimir un documento de JSON en la consola de modo más amigable, podemos utilizar el metodo `json.dumps(<json_document>, indent=4, separators=(',', ':'))`, donde es necesari modificar `<json_document>` por el documento de JSON que queremos imprimir.
+
 ### Script #12 - `12-spark-misson.py`
 
 La idea de este script es lograr escribir un mensaje en un grupo determinado utilizando la API. En el caso de que el `room` no este creado, lo crearemos. Luego agregaremos al `room` un nuevo usuario, enviaremos el mensaje, e imprimieremos en la consola los detalles del mismo.
 
 #### Instrucciones.
 
-1. Ir al archivo `code/12-spark-mission.py`
-2. Leer el script e identificar los comandos que hay que modificar (esán numerados con comentarios.)
-3. Realizar las modificaciones necesarias para:
-  1. Crear o encontrar un `room`.
-  2. Agregar un usuario de prueba.
-  3. Postear un mensaje.
-  4. Imprimir los detalles del room.
-4. Correr el script y verificar que la información impresa en la consola sea correcta, y que el mensaje se ha escrito en el grupo de Spark correspondiente.
+1.  Ir al archivo `code/12-spark-mission.py`
+2.  Leer el script e identificar los comandos que hay que modificar (esán numerados con comentarios.)
+3.  Realizar las modificaciones necesarias para:
+4.  Crear o encontrar un `room`.
+5.  Agregar un usuario de prueba.
+6.  Postear un mensaje.
+7.  Imprimir los detalles del room.
+8.  Correr el script y verificar que la información impresa en la consola sea correcta, y que el mensaje se ha escrito en el grupo de Spark correspondiente.
 
 #### Notas
 
-- Puede encontrar información de referencia sobre la API de Spark desde el siguiente link:
+* Puede encontrar información de referencia sobre la API de Spark desde el siguiente link:
 
 [https://developer.ciscospark.com/getting-started.html](https://developer.ciscospark.com/getting-started.html)

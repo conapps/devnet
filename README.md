@@ -19,7 +19,7 @@ https://api.ciscospark.com/v1/
 ### Spark API documentation
 
 ```
-https://developer.ciscospark.com/getting-started.html
+https://developer.webex.com/
 ```
 
 ### Meraki API URL

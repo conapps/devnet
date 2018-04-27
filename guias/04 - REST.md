@@ -217,7 +217,7 @@ La idea de este ejercicio es conseguir una lista de todos los `rooms` a los cual
 7.  Agregar un encabezado `Content-Type` con el valor `application/json; charset=utf-8`.
     ![Headers](../imagenes/REST-03.png)
 8.  Presionar `Send` y verificar el resultado.
-    ![Resultado](../imagenes/REST-02.png)
+    ![Resultado](../imagenes/REST-02.jpg)
 
 ### Ejercicio de Postman #2
 

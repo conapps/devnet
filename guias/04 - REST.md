@@ -212,6 +212,12 @@ La idea de este ejercicio es conseguir una lista de todos los `rooms` a los cual
 
     ![Token de ejemplo](../imagenes/REST-04.png)
 
+  <span style="color:red">
+    <a name="rememberthetoken">
+      Es muy importante que documente este token dado que lo necesitará mas adelante.
+    </a>
+  </span>
+
 3.  Ir a Postman.
 4.  Seleccionar `GET` del dropdown.
 5.  Escribir la siguiente URL: `https://api.ciscospark.com/v1/rooms`
@@ -288,7 +294,7 @@ Terrific! You just learned how to generate code using Postman. In the next secti
 
 Now, we will write the code ourselves. We will do it step-by-step, and eventually the code will send an API request to Spark and retrieve user's name and lastname based on the email information provided. In the code, we will be using /people API call and you can find detailed information regarding the call here.
 
-Before we proceed, we need to obtain Access Token from [https://developer.ciscospark.com/](https://developer.ciscospark.com/). We will Login with our username and password then click on our avatar picture. It will show us the access token needed to make the API calls. Click on the copy button.
+Before we proceed, we need to obtain Access Token from [https://developer.webex.com](https://developer.webex.com) . Will need to use our access-token documented in [link text](#rememberthetoken).
 
 1.  To make API calls using python, we need to import two modules: `requests` and `json`.
 

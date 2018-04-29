@@ -292,9 +292,9 @@ Terrific! You just learned how to generate code using Postman. In the next secti
 
 ## Writing Python Script
 
-Now, we will write the code ourselves. We will do it step-by-step, and eventually the code will send an API request to Spark and retrieve user's name and lastname based on the email information provided. In the code, we will be using /people API call and you can find detailed information regarding the call here.
+Ahora escribiremos el código nosotros mismos. Lo haremos paso a paso y eventualmente el código hará una llamada a la API de Spark para traer el nombre y apellido del usuario basado en el correo electrónico. En el código utilizaremos la llamada a /people.
 
-Before we proceed, we need to obtain Access Token from [https://developer.webex.com](https://developer.webex.com) . Will need to use our access-token documented in [link text](#rememberthetoken).
+Antes de continuar, necesitamos el "access-token" que obtuvimos [aquí](#rememberthetoken).
 
 1.  To make API calls using python, we need to import two modules: `requests` and `json`.
 

@@ -212,7 +212,7 @@ La idea de este ejercicio es conseguir una lista de todos los `rooms` a los cual
 
   <p style="color:red">
     <a name="rememberthetoken">
-      ** Es muy importante que documente este token dado que lo necesitará mas adelante. **
+      Es muy importante que documente este token dado que lo necesitará mas adelante.
     </a>
   </p>
 

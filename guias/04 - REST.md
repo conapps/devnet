@@ -296,21 +296,21 @@ Ahora escribiremos el código nosotros mismos. Lo haremos paso a paso y eventual
 
 Antes de continuar, necesitamos el "access-token" que obtuvimos [aquí](#rememberthetoken).
 
-1.  To make API calls using python, we need to import two modules: `requests` and `json`.
+1.  Para hacer llamadas a la API utilizando Python, necesitamos importar dos librerías: `requests` y `json`.
 
 ```python
 import json
 import requests
 ```
 
-2.  Now, we should be able to call all of the functions we need that are packaged in the modules. Optionally, we can turn off warning messages related to SSL certificates. It can be achieved with the code below.
+2.  En este punto deberíamos poder llamar a todas las funciones incluidas en ambas librerías. Opcionalmente podemos apagar las advertencias relacionadas con certificados SSL; esto puede hacerse con el código a continuación:
 
 ```python
 #Disable warnings
 requests.packages.urllib3.disable_warnings()
 ```
 
-3.  Below we will define variables which will be used later in our code.
+3.  A continuación definiremos variables que serán utilizadas luego:
 
 ```python
 # Variables
@@ -321,7 +321,7 @@ ENDPOINT ="/people"
 TOKEN = "Bearer {access-token}"
 ```
 
-4.  It is time to define our header and parameter information.
+4.  Es hora de definir nuestro encabezado y los parámetros:
 
 ```python
 # Header information
@@ -333,7 +333,7 @@ HEADERS = {
 PARAM = "?email=sqtest-ciscospark-travisuser@squared.example.com"
 ```
 
-5.  The result of our call we will assign to a response variable.
+5.  Asignaremos la respuesta a la llamada a una variable:
 
 ```python
 # Combine URL, API call and parameters variables
@@ -345,11 +345,11 @@ RESPONSE = requests.get(URL, headers=HEADERS, verify=False)
 print(RESPONSE.text)
 ```
 
-6.  To see how it works, open command line interface and navigate to the working directory. Then issue py -3 our_code.py command. If everything was written correctly then we should see output in our terminal screen.
+6.  Para ver como funciona, abra una consola bash, navegue al directorio donde está el script y ejecute el comando `python3 our_code.py`. Si todo funciona correctamente, debería ver una salida similiar a la imagen a continuación:
 
 ![Result](../imagenes/REST-26.png)
 
-As you can see the output is not very readable. Lets change our code, so it would print only information that interests us. To do that add `.json()`at the end of the `RESPONSE = requests.get(URL, headers=HEADERS, verify=False)` line. Then you can add a for loop to iterate over items stored in the response dictionary and print only names and the email address. The additional code looks like this:
+Como puede ver, la salida del script no es muy legible. Cambiemos el código para que imprima únicamente información relevante. Para hacer esto, agregue `.json()` al final de `RESPONSE = requests.get(URL, headers=HEADERS, verify=False)`. Luego agregue un loop `for` para iterar sobre los items guardados en el diccionario de respuesta e imprima unicamente nombres y direcciones de correo electrónico. El código adicional deberia lucir de la siguiente manera:
 
 ```python
 for item in RESPONSE["items"]:
@@ -357,11 +357,11 @@ for item in RESPONSE["items"]:
     print('Email: ' + item['emails'][0])
 ```
 
-7.  The results should now look like this:
+7.  Los resultados deberían verse así:
 
 ![Results 2](../imagenes/REST-27.png)
 
-Congratulations! You've written python code that can make REST API calls and retrieve information from Spark. If you don't fully understand the code above do not worry about it. The next lab goes through great detail and explains the moving pieces of the Python, so you can better understand what is happening in our own code.
+Felicitaciones! Has escrito un script de Python que puede hacer una llamada a una API REST para obtener información de Spark. Si aún no entiendes completamente el código utilizado, no te preocupes, el próximo laboratorio se encargará de ver en detalle todos los conceptos que hemos aplicado.
 
 ### Script #11 - `11-fist-python-spark-api-call.py`
 

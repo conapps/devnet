@@ -240,7 +240,7 @@ Ahora vamos a interactuar directamente con CISCO Spark utilizando su API. Vamos 
 }
 ```
 
-7.  Verifique en la documentación de Spark para incluir todos los parámetros necesarios.
+7.  Verifique en la documentación de Spark (https://developer.webex.com) para incluir todos los parámetros necesarios.
 8.  Confirme que el nuevo `room` se haya creado en su cuenta de Spark.
 
 ## Generating Code Using Postman

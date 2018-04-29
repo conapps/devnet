@@ -208,8 +208,10 @@ La idea de este ejercicio es conseguir una lista de todos los `rooms` a los cual
 #### Instrucciones
 
 1.  Crear una cuenta con Cisco Webex.
-2.  Acceder a https://developer.webex.com/getting-started.html y conseguir su token de desarrollador.
+2.  Acceder a https://developer.webex.com/getting-started.html y conseguir su token de desarrollador:
+
     ![Token de ejemplo](../imagenes/REST-04.png)
+
 3.  Ir a Postman.
 4.  Seleccionar `GET` del dropdown.
 5.  Escribir la siguiente URL: `https://api.ciscospark.com/v1/rooms`

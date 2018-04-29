@@ -398,4 +398,4 @@ La idea de este script es lograr escribir un mensaje en un grupo determinado uti
 
 * Puede encontrar información de referencia sobre la API de Spark desde el siguiente link:
 
-[https://developer.ciscospark.com/getting-started.html](https://developer.ciscospark.com/getting-started.html)
+[https://developer.webex.com/getting-started.html](https://developer.webex.com/getting-started.html)

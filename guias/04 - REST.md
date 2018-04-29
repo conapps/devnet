@@ -210,13 +210,16 @@ La idea de este ejercicio es conseguir una lista de todos los `rooms` a los cual
 1.  Crear una cuenta con Cisco Webex.
 2.  Acceder a https://developer.webex.com/getting-started.html y conseguir su token de desarrollador:
 
+\*\*
+
   <p style="color:red">
     <a name="rememberthetoken">
       Es muy importante que documente este token dado que lo necesitará mas adelante.
     </a>
   </p>
 
-    ![Token de ejemplo](../imagenes/REST-04.png)
+\*\*
+![Token de ejemplo](../imagenes/REST-04.png)
 
 3.  Ir a Postman.
 4.  Seleccionar `GET` del dropdown.

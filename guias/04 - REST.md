@@ -377,7 +377,7 @@ Este script inicialmente no hace nada. Solamente cuenta con la imporación de lo
 #### Notas
 
 * Para hacer un request HTTP tipo `get` con el módulo `requests` se puede utilizar el metodo `requests.get`.
-* Para poder imprimir un documento de JSON en la consola de modo más amigable, podemos utilizar el metodo `json.dumps(<json_document>, indent=4, separators=(',', ':'))`, donde es necesari modificar `<json_document>` por el documento de JSON que queremos imprimir.
+* Para poder imprimir un documento de JSON en la consola de modo más amigable, podemos utilizar el metodo `json.dumps(<json_document>, indent=4, separators=(',', ':'))`, donde es necesario modificar `<json_document>` por el documento de JSON que queremos imprimir.
 
 ### Script #12 - `12-spark-misson.py`
 

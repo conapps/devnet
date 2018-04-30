@@ -10,18 +10,18 @@ import json       # Import JSON encoder and decode module
 
 requests.packages.urllib3.disable_warnings()  # Disable warnings
 
+# Hardcoded URL data
+dnac_ip = "sandboxdnac.cisco.com"
+version = "v1"
+post_url = "https://" + dnac_ip + "/api/system/" + version + "/auth/token"
 
-def get_token(username, password):
-    # Hardcoded data
-    dnac_ip = "sandboxdnac.cisco.com"
-    version = "v1"
-    post_url = "https://" + dnac_ip + "/api/system/" + version + "/auth/token"
 
+def get_token(username, password, url=post_url):
     # All DNAC REST API request and response content type is JSON.
     headers = {'content-type': 'application/json'}
 
     # Make request and get response - "resp" is the response of this request
-    resp = requests.post(post_url, auth=HTTPBasicAuth(
+    resp = requests.post(url, auth=HTTPBasicAuth(
         username=username, password=password), headers=headers, verify=False)
 
     return resp.json()['Token']

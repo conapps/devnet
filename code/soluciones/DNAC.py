@@ -13,7 +13,10 @@ requests.packages.urllib3.disable_warnings()  # Disable warnings
 # Hardcoded URL data
 dnac_ip = "sandboxdnac.cisco.com"
 version = "v1"
-post_url = "https://" + dnac_ip + "/api/system/" + version + "/auth/token"
+api_root_system_url = "https://" + dnac_ip + "/api/system/" + version
+api_root_url = "https://" + dnac_ip + "/api/" + version
+api_endpoint = "/auth/token"
+post_url = api_root_system_url + api_endpoint
 
 
 def get_token(username, password, url=post_url):

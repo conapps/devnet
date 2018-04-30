@@ -10,6 +10,24 @@ https://devnetapi.cisco.com/sandbox/apic_em/api/v1/
 http://devnetapic.cisco.com/
 ```
 
+### Devnet DNA Center API documentation
+
+```
+https://developer.cisco.com/site/dna-center-rest-api/?version=1.0
+```
+
+### Devnet DNA Center API URL (to get the token)
+
+```
+"https://sandboxdnac.cisco.com/api/system/v1"
+```
+
+### Devnet DNA Center API URL (to access resources)
+
+```
+"https://sandboxdnac.cisco.com/api/v1"
+```
+
 ### Spark API URL
 
 ```

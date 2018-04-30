@@ -43,7 +43,7 @@ To get a service token:
 
 **Bonus:**
 
-> Read **Authentication/Authorization** section of the [API documentation](https://developer.cisco.com/site/dna-center-rest-api/), `import base64` and use the function `base64.b64encode(bytes(username + ':' + password, 'utf-8')).decode('utf-8')` to encode username:password in base64 and get the token without using `HTTPBasicAuth`.
+> Read **Authentication/Authorization** section of the [API documentation](https://developer.cisco.com/site/dna-center-rest-api/), `import base64` and use the function `base64.b64encode(bytes(username + ':' + password, 'utf-8')).decode('utf-8')` to encode username:password in base64 and get the token **without** using `HTTPBasicAuth`.
 
 ## Prepare to reuse the generation of service tokens (script 14b)
 

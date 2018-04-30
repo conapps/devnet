@@ -29,12 +29,20 @@ RBAC-governed APIs use the service token to make access-control decisions. There
 
 After you get the service token, you include it in all of the subsequent calls you send to the controller. When the controller receives those calls, it checks the service token before performing the action requested by the call.
 
-## Generate a service token
+## Generate a service token (script 14a)
 
 To get a service token:
 
-1.  Locate the 14a-DNAC-get-token.py.
+1.  Locate the 14a-DNAC-get-token.pHTTPBasicAuthy.
 2.  Use a Python command to run the script. For example:
     * On Linux or Mac OS: python3 14a-DNAC-get-token.py
     * On Windows: py -3 14a-DNAC-get-token.py or python 14a-DNAC-get-token.py
 3.  Copy the service token printed in the console, navigate to [https://jwt.io](https://jwt.io), paste it inside "Encoded" text area and see the results in "Decoded" field.
+
+> Observe that the function `HTTPBasicAuth` takes care of base64 encoding of the username and password and to include the encoded field in a header in the request.
+
+Bonus: Read **Authentication/Authorization** section of the [API documentation](https://developer.cisco.com/site/dna-center-rest-api/), `import base64` and use the function `base64.b64encode(bytes(username + ':' + password, 'utf-8')).decode('utf-8')` to encode username:password in base64 and get the token without using `HTTPBasicAuth`.
+
+## Prepare to reuse the generation of service tokens (script 14b)
+
+Now we are going to make a function called `get_token(username, password)` that returns the service token as a string. Complete the script `14b-DNAC-get-token-function.py` and obtain a re-usable function.

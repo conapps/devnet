@@ -33,7 +33,7 @@ After you get the service token, you include it in all of the subsequent calls y
 
 To get a service token:
 
-1.  Locate the 14a-DNAC-get-token.pHTTPBasicAuthy.
+1.  Locate the 14a-DNAC-get-token.py.
 2.  Use a Python command to run the script. For example:
     * On Linux or Mac OS: python3 14a-DNAC-get-token.py
     * On Windows: py -3 14a-DNAC-get-token.py or python 14a-DNAC-get-token.py

@@ -31,12 +31,27 @@ After you get the service token, you include it in all of the subsequent calls y
 
 ## Generate a service token (script 14a)
 
-To get a service token:
+Carefully review the [API documentation](https://developer.cisco.com/site/dna-center-rest-api/) regarding how to get a service token.
+The procedure explained in the docs, assumes the use of a web browser (cookie based JWT).
+In our case we are not using a browser to interact with the API; we are going to interact with it through a Python script.
+Although both procedures are almost the same, they have some minor differences:
 
-1.  Locate the 14a-DNAC-get-token.py.
+Procedure to get a token using POSTMAN:
+
+1.  Configure the method as "POST"
+2.  Configure the URL as: https://sandboxdnac.cisco.com/api/system/v1/auth/token
+3.  Add a header {"Content-Type":"application/json"}
+4.  Add a header {"Authorization":"Basic <username:password>"}
+    Pay attention to the space after "Basic". <username:password> must be "devnetuser:Cisco123!" 
+    encoded in Base64 (ZGV2bmV0dXNlcjpDaXNjbzEyMyE=)
+5.  Submit and see the results in the body of the response.
+
+Now let's see how to get a service token programmatically using Python:
+
+1.  Locate the 15-DNAC-get-token.py.
 2.  Use a Python command to run the script. For example:
-    * On Linux or Mac OS: python3 14a-DNAC-get-token.py
-    * On Windows: py -3 14a-DNAC-get-token.py or python 14a-DNAC-get-token.py
+    * On Linux or Mac OS: ```python3 15-DNAC-get-token.py```
+    * On Windows: ```py -3 15-DNAC-get-token.py or python 14a-DNAC-get-token.py```
 3.  Copy the service token printed in the console, navigate to [https://jwt.io](https://jwt.io), paste it inside "Encoded" text area and see the results in "Decoded" field.
 
 > Observe that the function `HTTPBasicAuth` takes care of base64 encoding of the username and password and to include the encoded field in a header in the request.
@@ -47,20 +62,20 @@ To get a service token:
 
 ## Prepare to reuse the generation of service tokens (script DNAC.py)
 
-Now we are going to make a python module called `DNAC.py` with a function in it called `get_token(username, password)` that returns the service token as a string. Complete the script `DNAC.py` and obtain a re-usable function.
+Now we are going to make a **python module** called `DNAC.py` with a function in it called `get_token(username, password)` that returns the service token as a string. Complete the script `DNAC.py` and obtain a re-usable function.
 
-## Using the service token (Script 14c)
+## Using the service token (Script 16)
 
 Almost every API call you send to Cisco DNAC REST must provide a service token; it doesn't matter whether the request is a POST, GET, PUT or DELETE. To provide the service token with your call, use an X-Auth-Token header. The header is a name-value pair that includes the value of your service token:
 
 `{"X-Auth-Token": "service_token_value" }`
 
-Replace service_token_value with the value of your service token. You don't have to get a new service token every time you make a request. However, the service token value must be valid and unexpired. In this lab, for simplicity, you start by getting a new service token each time you make a call to the API. Later, you'll see how to get and reuse a service token.
+Replace service_token_value with the value of your service token. You don't have to get a new service token every time you make a request. However, the service token value must be valid and unexpired. In this lab, for simplicity, you start by getting a new service token each time you make a call to the API. 
 
-The following GET /host request shows how to use a service token. This request returns a list of DNAC hosts. The content of the list it returns is governed by the role of the caller. If the caller has an admin role, the response contains a list of all users. If the caller has an observer role, the response contains only the caller's user information.
+The following GET /host request shows how to use a service token. This request returns a list of DNAC hosts. The content of the list it returns is governed by the role of the caller. If the caller has an admin role, the response contains a list of all hosts. If the caller has an observer role, the response contains only the caller's host information.
 
 The GET /host request does not require any arguments. Add an X-Auth-Token header to your GET /host request. The value of X-Auth-Token is the service token that your previous call to POST /token returned.
 
-### Script 14c.
+### Script 16.
 
 Start from the file `14c-DNAC-get-hosts.py` and modify it so it returns a list of hosts from DNAC.

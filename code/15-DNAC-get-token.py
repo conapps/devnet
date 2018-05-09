@@ -26,12 +26,12 @@ headers = {'content-type': 'application/json'}
 # Make request and get response - "resp" is the response of this request
 resp = requests.post(post_url, auth=HTTPBasicAuth(
     username=username, password=password), headers=headers, verify=False)
-print ("Request Status: ", resp.status_code)
+print("Request Status: ", resp.status_code)
 
 # Get the json-encoded content from response
 response_json = resp.json()
-print ("\nRaw response from POST token request:\n", resp.text)
+print("\nRaw response from POST token request:\n", resp.text)
 # Not that easy to read the raw response, so try the formatted print out
 
 # Pretty print the raw response
-print ("\nPretty print response:\n", json.dumps(response_json, indent=4))
+print("\nPretty print response:\n", json.dumps(response_json, indent=4))

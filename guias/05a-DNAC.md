@@ -40,8 +40,8 @@ Procedure to get a token using POSTMAN:
 
 1.  Configure the method as "POST"
 2.  Configure the URL as: https://sandboxdnac.cisco.com/api/system/v1/auth/token
-3.  Add a header {"Content-Type":"application/json"}
-4.  Add a header {"Authorization":"Basic <username:password>"}
+3.  Add a header `{"Content-Type":"application/json"}`
+4.  Add a header `{"Authorization":"Basic <username:password>"}`
     Pay attention to the space after "Basic". <username:password> must be "devnetuser:Cisco123!" 
     encoded in Base64 (ZGV2bmV0dXNlcjpDaXNjbzEyMyE=)
 5.  Submit and see the results in the body of the response.

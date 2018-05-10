@@ -79,3 +79,102 @@ The GET /host request does not require any arguments. Add an X-Auth-Token header
 ### Script 16.
 
 Start from the file `14c-DNAC-get-hosts.py` and modify it so it returns a list of hosts from DNAC.
+
+## Network device related APIs
+
+#### Objectives
+
+The Cisco DNAC controller assigns a unique ID to every network device. You can pass this ID to a variety of network device-related calls to retrieve information about a specific device, such as its IOS configuration and interfaces.
+
+In this lab, the Python application makes the following calls:
+
+- `GET /network-device`
+- `GET /network-device/{networkDeviceId}/config`
+- `GET /interface/network-device/{deviceId}`
+
+Note: The Cisco DNAC controller can scan for and discover physical devices attached to a network. To initiate this discovery process, you can send a POST /discovery call to the controller, or you can click the Discovery icon in its GUI. The Cisco DNAC controller in the Cisco DevNet Learning Labs is pre-populated with the results of a previous discovery, so this lab does not examine Discovery.
+
+### Application that displays IOS configuration
+
+In this section, you create a simple application to:
+
+Prompt the user to select a device.
+Display the IOS configuration of the user-selected device.
+Pseudo-code:
+
+1. Use GET /network-device to display a list of network devices with IP addresses.
+2. Accept user input of device selection.
+3. Use `GET /network-device/{deviceId}/config` to retrieve the IOS configuration of the specified device, then display the IOS configuration to the user.
+
+### Task 1: Present a list of network devices with IP addresses
+
+To display a list of network devices to the user, retrieve network device information by issuing the `GET /network-device` request. The response body returns a list of network devices. Each block in the response provides information about a single device, including its network device name, IP, type, network device ID and more.
+
+This **network device ID** provides a way of identifying a specific network device to many APIs, including the `GET /network-device/{deviceId}/config` request.
+
+The `GET /network-device` response block provides many attributes. Your application uses the following attributes:
+
+- **instanceUuid** or **id** is the ID the controller assigned to the network device at discovery.
+- **hostname** is the name of the network device. Note that this attribute applies to both hosts and devices.
+- **managementIpAddress** is the IP address of the network device.
+- **type** is the type of network device, such as a switch, router, or access point.
+
+Your task is the following: 
+
+1. Locate and open the file `17-DNAC-get-network-device-list.py`
+2. Modify it so the script executes a `GET /network-device` request and displays a list of devices in exactly the following format:
+
+```
+=== Equipo 1  ===
+	Hostname:  asr1001-x.abc.inc
+	Type:  Cisco ASR 1001-X Router
+	Device id:  d5bbb4a9-a14d-4347-9546-89286e9f30d4
+	Management IP Address:  10.10.22.74
+=== Equipo 2  ===
+	Hostname:  cat_9k_1.abc.inc
+	Type:  Cisco Catalyst 9300 Switch
+	Device id:  6d3eaa5d-bb39-4cc4-8881-4a2b2668d2dc
+	Management IP Address:  10.10.22.66
+=== Equipo 3  ===
+	Hostname:  cat_9k_2.abc.inc
+	Type:  Cisco Catalyst 9300 Switch
+	Device id:  74b69532-5dc3-45a1-a0dd-6d1d10051f27
+	Management IP Address:  10.10.22.70
+=== Equipo 4  ===
+	Hostname:  cs3850.abc.inc
+	Type:  Cisco Catalyst38xx stack-able ethernet switch
+	Device id:  8be78ab1-d684-49c1-8529-2b08e9c5a6d4
+	Management IP Address:  10.10.22.69
+
+```
+
+### Task 2: Prompt the user for input and retrieve the device ID
+
+Add the following code to `17-DNAC-get-network-device-list.py` so it prompts the user for a device selection:
+
+```python
+device_list = response['response']
+
+while True:
+    user_input = input('=> Selecciona uno de los siguientes equipos: ')
+    # ignore space
+    user_input = user_input.replace(" ", "")
+    if user_input.lower() == 'exit':
+        sys.exit()
+    if user_input.isdigit():
+        if int(user_input) in range(1, len(device_list) + 1):
+            device_id = device_list[int(user_input)-1]['id']
+            break
+        else:
+            print("Uups! el numero esta fuera de rango. Intenta de nuevo o escribe 'exit'\n")
+    else:
+        print("Uups debes seleccionar un numero o escribir 'exit'\n")
+
+# End of while loop
+print('El equipo seleccionado es el: ', device_id)
+```
+
+### Task 3: Get the IOS configuration of the specified device and display it to the user
+
+Now, use the script `18-DNAC-get-network-config.py` (it starts where `17-DNAC-get-network-device-list.py` left) and complete it so it retreives the selected device configuration.
+> Hint: You can ask DNA Center for a device configuration issuing a `GET /network-device/{device-id}/config`.

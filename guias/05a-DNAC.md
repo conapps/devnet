@@ -106,7 +106,7 @@ Pseudo-code:
 2. Accept user input of device selection.
 3. Use `GET /network-device/{deviceId}/config` to retrieve the IOS configuration of the specified device, then display the IOS configuration to the user.
 
-### Task 1: Present a list of network devices with IP addresses
+### Task 1: Present a list of network devices with IP addresses (script 17)
 
 To display a list of network devices to the user, retrieve network device information by issuing the `GET /network-device` request. The response body returns a list of network devices. Each block in the response provides information about a single device, including its network device name, IP, type, network device ID and more.
 
@@ -148,7 +148,7 @@ Your task is the following:
 
 ```
 
-### Task 2: Prompt the user for input and retrieve the device ID
+### Task 2: Prompt the user for input and retrieve the device ID (script 17)
 
 Add the following code to `17-DNAC-get-network-device-list.py` so it prompts the user for a device selection:
 
@@ -174,7 +174,7 @@ while True:
 print('El equipo seleccionado es el: ', device_id)
 ```
 
-### Task 3: Get the IOS configuration of the specified device and display it to the user
+### Task 3: Get the IOS configuration of the specified device and display it to the user (script 18)
 
 Now, use the script `18-DNAC-get-network-config.py` (it starts where `17-DNAC-get-network-device-list.py` left) and complete it so it retreives the selected device configuration.
 > Hint: You can ask DNA Center for a device configuration issuing a `GET /network-device/{device-id}/config`.

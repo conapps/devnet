@@ -78,7 +78,7 @@ The GET /host request does not require any arguments. Add an X-Auth-Token header
 
 ### Script 16.
 
-Start from the file `14c-DNAC-get-hosts.py` and modify it so it returns a list of hosts from DNAC.
+Start from the file `16-DNAC-get-hosts.py` and modify it so it returns a list of hosts from DNAC.
 
 ## Network device related APIs
 

@@ -17,4 +17,4 @@ ORG_NAME = 'C008 - Preventa Conatel'
 NETWORK_NAME = 'W001 - Wireless ACME'
 
 # Nombre de la sala donde hay que publicar las alarmas de tráfico
-SPARK_ROOM_NAME = 'DevNet Express - Salto'
+SPARK_ROOM_NAME = 'Milagro'

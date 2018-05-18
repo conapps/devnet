@@ -53,7 +53,7 @@ NETWORK_NAME = 'W001 - Wireless ACME'
 ____
 
 ##### Nombre de la sala donde hay que publicar las alarmas de tráfico
-SPARK_ROOM_NAME = 'DevNet Express - Salto'
+SPARK_ROOM_NAME = 'Milagro'
 
 
 El script ```code/desafio_final.py``` se puede utilizar como template, el mismo ya contiene los datos precargados, así como la implementación para leer el umbral de tráfico como un parámetro.
